@@ -42,7 +42,7 @@ function Signup() {
       <Modal open={isModalOpen} closeIcon={false} footer={true}>
         <input onChange={(e) => setFirstName(e.target.value)} placeholder='Firstname'></input>
         <input onChange={(e) => setUserName(e.target.value)}  placeholder='Username'></input>
-        <input onChange={(e) => setPassword(e.target.value)} placeholder='Password'></input>
+        <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Password'></input>
         <button onClick={handleCancel}>x</button>
         <Link href='/home' ><button  onClick={()=> handleSignup()}>Sign up</button></Link>
       </Modal>
