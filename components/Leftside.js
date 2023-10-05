@@ -1,19 +1,21 @@
 import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
-function Leftside(){
+import { useDispatch} from 'react-redux';
+import { logout } from '../reducers/users';
 
+function Leftside(){
+    const dispatch = useDispatch()
     const handleLogout = () =>{
-        
+        dispatch(logout())
     }
     const handleRefresh = () =>{
-        <Link href='/home'/>
+        window.location.reload(true);
     }
-
     return(
         <div className={styles.Leftside}>
-        <Image className={styles.Logo} src='/logo.png'width={100} height={100} onClick={()=> handleRefresh()} />
-        <button onClick={()=> handleLogout()}>Logout</button>
+        <Image className={styles.Logo} src='/logo.png'width={100} height={100} onClick={()=> handleRefresh()}/>
+        <Link href='/' ><button onClick={()=> handleLogout()}>Logout</button></Link>
         </div>
     )
 }
