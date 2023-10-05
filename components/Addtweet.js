@@ -9,12 +9,13 @@ function Addtweet(){
       headers : {'Content-type' : 'application/json'},
       body:JSON.stringify({username: user.username,password: user.password})
     })
-    
+
     .then(response => response.json())
     .then(data => {
       console.log(data)
       dispatch(addUser({username:data.username, token:data.token}))
     })
+    
     }
     return(
     <div className={styles.Addtweet}>
