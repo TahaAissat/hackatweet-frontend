@@ -20,8 +20,8 @@ const tweetList = useSelector((state) => state.tweets.value)
 console.log(tweetList)
 
 // Mise en place des tweet a afficher
-const tweetsDisplay = tweetList.map (e => {
-    return <Tweet firstname={e.firstname} username={e.username} texte={e.texte} />
+const tweetsDisplay = tweetList.map ((e,i) => {
+    return <Tweet key={i} firstname={e.firstname} username={e.username} texte={e.texte} />
 })
 
     

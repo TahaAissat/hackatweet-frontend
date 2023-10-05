@@ -10,9 +10,12 @@ export const tweetsSlice = createSlice({
     reducers : {
         defineList : (state,action) => {
             state.value = action.payload
+        },
+        deleteTweet : (state,action) => {
+           state.value = state.value.filter(e => e.texte === action.payload.texte)
         }
     }
 })
 
-export const {defineList} = tweetsSlice.actions;
+export const {defineList,deleteTweet} = tweetsSlice.actions;
 export default tweetsSlice.reducer
