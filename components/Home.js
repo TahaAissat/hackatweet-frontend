@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css';
 import Leftside from '../components/Leftside';
 import LatestTweets from './LatestTweets';
 import Addtweet from './Addtweet';
+import Trends from './Trend';
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
         <Leftside/>
         <Addtweet/>
         <LatestTweets/>
+        <Trends/>
     </div>
   );
 }

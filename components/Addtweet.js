@@ -7,8 +7,8 @@ function Addtweet(){
     const [text,setText] = useState('')
     const user = useSelector(state => state.users.value)
     // console.log('test',user)
-    const hashtagTest = /#[a-z]*/i
-    const hashtag = hashtagTest.test(text)
+    const hashtagTest = /#/i
+    const hashtag = text.match(hashtagTest)
     console.log(hashtag)
     const handlAddtweet = () =>{
         fetch('http://localhost:3000/users/add',{
