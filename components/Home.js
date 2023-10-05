@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import Leftside from './Leftside';
+import Leftside from '../components/Leftside';
 
 function Home() {
   return (
