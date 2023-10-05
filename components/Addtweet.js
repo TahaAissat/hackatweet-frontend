@@ -6,12 +6,15 @@ function Addtweet(){
     const dispatch = useDispatch()
     const [text,setText] = useState('')
     const user = useSelector(state => state.users.value)
-    console.log('test',user)
+    // console.log('test',user)
+    const hashtagTest = /#[a-z]*/i
+    const hashtag = hashtagTest.test(text)
+    console.log(hashtag)
     const handlAddtweet = () =>{
         fetch('http://localhost:3000/users/add',{
       method:'POST',
       headers : {'Content-type' : 'application/json'},
-      body:JSON.stringify({username: user.username, texte: text, firstname: user.firstname,hashtag: user.hashtag, token: user.token, date: user.date})
+      body:JSON.stringify({username: user.username, texte: text, firstname: user.firstname,})
     })
 
     .then(response => response.json())
@@ -25,8 +28,9 @@ function Addtweet(){
     <div className={styles.Addtweet}>
     <label>
      <h3>Home</h3>
-      <textarea onChange={(e) => setText(e.target.value)} name="postContent" rows={4} cols={40} />
+      <textarea onChange={(e) => {if(text.length < 240){setText(e.target.value)}}} name="postContent" rows={4} cols={40} />
     </label>
+    <p>{text.length}/240</p>
     <button onClick={()=> handlAddtweet()}>tweet</button>
     </div>
     )
