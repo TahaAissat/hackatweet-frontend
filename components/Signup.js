@@ -31,7 +31,7 @@ function Signup() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      dispatch(addUser({username:data.username, token:data.token}))
+      dispatch(addUser({username:data.username, token:data.token, firstname:data.firstname}))
     })
   }
     return (
