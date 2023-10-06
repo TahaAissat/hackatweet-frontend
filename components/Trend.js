@@ -8,6 +8,21 @@ import { useRouter } from 'next/router';
 function Trends(){
     const router = useRouter()
     const dispatch = useDispatch()
+    useEffect(() => {
+        fetch('http://localhost:3000/tweets/latest')
+        .then(response=>response.json())
+        .then(data =>{
+            dispatch(defineList(data.tweets))
+        })
+    },[])
+    const handleFindHastag = (hashtag) =>{
+        fetch(`http://localhost:3000/tweets/search/${hashtag.replace('#','')}`)
+        .then(response => response.json())
+        .then(data =>{
+            dispatch(defineHashtagTweets(data.tweets))
+            return router.push(`/hashtagtweets/${hashtag}`)
+        })
+    }
     const tweetList = useSelector((state) => state.tweets.value)
     let hashtag = []
     for(let item of tweetList){
