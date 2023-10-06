@@ -6,15 +6,8 @@ import { useEffect } from 'react';
 
 function Trends(){
     const dispatch = useDispatch()
-    useEffect(() => {
-        fetch('http://localhost:3000/tweets/latest')
-        .then(response=>response.json())
-        .then(data =>{
-            dispatch(defineList(data.tweets))
-        })
-    },[])
+
     const tweetList = useSelector((state) => state.tweets.value)
-    console.log(tweetList)
     let hashtag = []
     for(let item of tweetList){
         hashtag.push(item.hashtag)

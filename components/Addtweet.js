@@ -11,7 +11,7 @@ function Addtweet(){
     // Isolation des #hashtag
     const hashtagTest = /#[a-z0-9]+/gi
     const hashtag = text.match(hashtagTest)
-    console.log(hashtag)
+
 
     
     const handlAddtweet = () =>{
@@ -22,7 +22,7 @@ function Addtweet(){
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      dispatch(defineList(data.tweets))
       setText('')
     })
 
@@ -31,7 +31,7 @@ function Addtweet(){
     <div className={styles.Addtweet}>
     <label>
      <h3>Home</h3>
-      <textarea onChange={(e) => {if(text.length < 280){setText(e.target.value)}}} name="postContent" rows={4} cols={40} />
+      <textarea onChange={(e) => {if(text.length < 280){setText(e.target.value)}}} value={text} name="postContent" rows={4} cols={40} />
     </label>
     <p>{text.length}/280</p>
     <button onClick={()=> handlAddtweet()}>tweet</button>

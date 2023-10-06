@@ -12,7 +12,7 @@ export const tweetsSlice = createSlice({
             state.value = action.payload
         },
         deleteTweet : (state,action) => {
-           state.value = state.value.filter(e => e.texte === action.payload.texte)
+           state.value = state.value.filter(e => e.texte !== action.payload)
         }
     }
 })
