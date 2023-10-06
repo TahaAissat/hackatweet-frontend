@@ -21,12 +21,24 @@ const handleTrash = () => {
         }
     })
 }
+
+const handleLike = () => {
+    fetch('http://localhost:3000/tweets/like', {
+        method:'POST',
+        headers : { 'Content-type' : 'application/json'},
+        body : JSON.stringify ({username : props.username , texte : props.texte})
+    })
+    .then(response => response.json())
+    .then (data => {
+        console.log(data)
+    })
+}
     return (
         <>
         <div>
             <p>{props.firstname}@{props.username}-{props.time}</p>
             <p>{props.texte}</p>
-            <FontAwesomeIcon icon={faHeart} color='white'/>
+            <FontAwesomeIcon onClick={() => handleLike()} icon={faHeart} color='black'/>
             <FontAwesomeIcon onClick={() => handleTrash()} icon={faTrashCan} />
         </div>
         </>
