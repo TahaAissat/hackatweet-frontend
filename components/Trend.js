@@ -23,7 +23,6 @@ function Trends(){
             return router.push(`/hashtagtweets/${hashtag}`)
             
         })
-
     }
     const tweetList = useSelector((state) => state.tweets.value)
     console.log(tweetList)
