@@ -1,0 +1,40 @@
+.Home_page{
+    background-color: rgb(22, 31, 45);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+}
+.Logo{
+    cursor: pointer;
+}
+
+.Leftside{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 20%;
+}
+.Addtweet{
+    border: 1px solid gray;
+    width: 60%;
+    padding: 20px;
+}
+.area{
+    background-color:  rgb(22, 31, 45);
+    margin-left: 20px;
+    text-indent: 10px;
+    color: white;
+}
+.Trends{
+    width: 20%;
+}
+.logout{
+    position: relative;
+    top: 80vh;
+    left: 2vh;
+}
+.tweet{
+    padding: 10px;
+    border: 1px solid gray;
+}

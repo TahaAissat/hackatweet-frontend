@@ -23,6 +23,8 @@
 .area{
     background-color:  rgb(22, 31, 45);
     margin-left: 20px;
+    text-indent: 10px;
+    color: white;
 }
 .Trends{
     width: 20%;
