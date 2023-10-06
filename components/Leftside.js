@@ -10,6 +10,7 @@ function Leftside(){
         dispatch(logout())
     }
     const handleRefresh = () =>{
+        localStorage.removeItem('authToken');
         window.location.reload(true);
     }
     return(

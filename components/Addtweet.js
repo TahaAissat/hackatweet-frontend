@@ -13,7 +13,7 @@ function Addtweet(){
     const hashtag = text.match(hashtagTest)
     console.log(hashtag)
 
-
+    
     const handlAddtweet = () =>{
         fetch('http://localhost:3000/tweets/add',{
       method:'POST',
@@ -31,9 +31,9 @@ function Addtweet(){
     <div className={styles.Addtweet}>
     <label>
      <h3>Home</h3>
-      <textarea onChange={(e) => {if(text.length < 240){setText(e.target.value)}}} name="postContent" rows={4} cols={40} />
+      <textarea onChange={(e) => {if(text.length < 280){setText(e.target.value)}}} name="postContent" rows={4} cols={40} />
     </label>
-    <p>{text.length}/240</p>
+    <p>{text.length}/280</p>
     <button onClick={()=> handlAddtweet()}>tweet</button>
     </div>
     )
