@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const hashtagSlice = createSlice({
-    name : 'hashtagTweets',
+    name : 'hashtagtweets',
     initialState,
     reducers : {
         defineHashtagTweets : (state,action) => {
