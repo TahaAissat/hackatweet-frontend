@@ -28,10 +28,10 @@ function Addtweet(){
 
     }
     return(
-    <div className={styles.Addtweet}>
+    <div>
     <label>
      <h3>Home</h3>
-      <textarea onChange={(e) => {if(text.length < 280){setText(e.target.value)}}} value={text} name="postContent" rows={4} cols={40} />
+      <textarea className={styles.area} onChange={(e) => {if(text.length < 280){setText(e.target.value)}}} value={text} name="postContent" rows={4} cols={80} />
     </label>
     <p>{text.length}/280</p>
     <button onClick={()=> handlAddtweet()}>tweet</button>

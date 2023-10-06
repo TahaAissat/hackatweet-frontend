@@ -1,4 +1,4 @@
-import styles from '../styles/Tweet.module.css';
+import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHeart, faTrashCan} from '@fortawesome/free-solid-svg-icons'
 import { useDispatch,useSelector } from 'react-redux';
@@ -56,7 +56,7 @@ const handleLike = () => {
 }
     return (
         <>
-        <div>
+        <div className={styles.tweet}>
             <p>{props.firstname}@{props.username}-{props.time}</p>
             <p>{props.texte}</p>
             <FontAwesomeIcon onClick={() => handleLike()} icon={faHeart} style={style}/>{props.likes}

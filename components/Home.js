@@ -10,14 +10,16 @@ function Home() {
   console.log(user)
   return (
     <div className={styles.Home_page}>
-      <div>
+      <div className={styles.Leftside}>
         <Leftside/>
-        </div>
-        <div>
+      </div>
+      <div className={styles.Addtweet}>
           <Addtweet/>
-          <LatestTweets/>
-        </div>
+          <LatestTweets className={styles.tweet}/>
+      </div>
+      <div className={styles.Trends}>
         <Trends/>
+      </div>
     </div>
   );
 }

@@ -36,7 +36,7 @@ function Trends(){
       </div>
     ));
     return(
-        <div className={styles.Trends}>
+        <div>
             <h2>Trends</h2>
             {trendItems}
         </div>
