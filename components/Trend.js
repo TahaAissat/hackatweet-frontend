@@ -3,10 +3,10 @@ import { useDispatch,useSelector } from 'react-redux';
 import { defineList} from '../reducers/tweets'
 import { useEffect } from 'react';
 import { defineHashtagTweets } from '../reducers/hashtagtweets';
-
-
+import { useRouter } from 'next/router';
 
 function Trends(){
+    const router = useRouter()
     const dispatch = useDispatch()
     useEffect(() => {
         fetch('http://localhost:3000/tweets/latest')
@@ -16,10 +16,11 @@ function Trends(){
         })
     },[])
     const handleFindHastag = (hashtag) =>{
-        fetch(`http://localhost:3000/search/${hashtag.replace('#','')}`)
+        fetch(`http://localhost:3000/tweets/search/${hashtag.replace('#','')}`)
         .then(response => response.json())
         .then(data =>{
             dispatch(defineHashtagTweets(data.tweets))
+            return router.push(`/hashtagtweets/${hashtag}`)
             
         })
 

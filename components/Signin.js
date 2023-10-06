@@ -34,13 +34,13 @@ function Signin() {
   
     return (
     <div style={styles.Signin}>
-      <button onClick={showModal}>
+      <button className={styles.buttonSign}onClick={showModal}>
         Sign in
       </button>
       <Modal open={isModalOpen} closeIcon={false} footer={true}>
-        <input onChange={(e) => setUserName(e.target.value)} placeholder='Username'></input>
-        <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Password'></input>
         <button onClick={handleCancel}>x</button>
+        <input onChange={(e) => setUserName(e.target.value)} placeholder='Username'></input><br></br>
+        <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Password'></input><br></br>
         <Link href='/home'><button onClick={()=> handleSignin()}>Sign in</button></Link>
       </Modal>
     </div>

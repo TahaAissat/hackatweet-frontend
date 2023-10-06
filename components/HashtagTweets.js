@@ -9,7 +9,8 @@ const tweetList = useSelector((state) => state.hashtagtweets.value)
 
 
 const tweetListDisplay = tweetList.map((e,i) => {
-return <Tweet key={i} firstname={e.firstname} username={e.username} texte={e.texte} />
+    console.log('e',e)
+return <Tweet key={i} firstname={e.firstname} username={e.username} texte={e.texte} hashtag={e.hashtag}/>
 })
     return (
         <>
