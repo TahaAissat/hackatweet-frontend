@@ -9,13 +9,9 @@ function Leftside(){
     const handleLogout = () =>{
         dispatch(logout())
     }
-    const handleRefresh = () =>{
-        localStorage.removeItem('authToken');
-        window.location.reload(true);
-    }
     return(
         <div className={styles.Leftside}>
-        <Image className={styles.Logo} src='/logo.png'width={100} height={100} onClick={()=> handleRefresh()}/>
+        <Link href='/home'><Image className={styles.Logo} src='/logo.png'width={100} height={100}/></Link>
         <Link href='/' ><button onClick={()=> handleLogout()}>Logout</button></Link>
         </div>
     )
