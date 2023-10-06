@@ -21,7 +21,6 @@ function Trends(){
         .then(data =>{
             dispatch(defineHashtagTweets(data.tweets))
             return router.push(`/hashtagtweets/${hashtag}`)
-            
         })
     }
     const tweetList = useSelector((state) => state.tweets.value)
