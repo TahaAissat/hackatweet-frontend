@@ -8,7 +8,6 @@ import { useRouter } from 'next/router';
 function Trends(){
     const router = useRouter()
     const dispatch = useDispatch()
-
     const tweetList = useSelector((state) => state.tweets.value)
     let hashtag = []
     for(let item of tweetList){
