@@ -17,37 +17,37 @@ useEffect(() => {
     .then(response=>response.json())
     .then(data =>{
         dispatch(defineList(data.tweets))
+        setLikedTweets(tweetList.filter(e => e.likes.includes(user.token)))
     })
 },[])
 
-const updateLikedTweets = () => {
-   setLikedTweets(tweetList.filter(e => e.likes.includes(user.token)))
+const updateLikedTweets = (tweet) => {
+    console.log(likedTweets.some(e => e.texte === tweet.texte))
+    if(likedTweets.some(e => e.texte === tweet.texte)){
+        setLikedTweets(tweetList.filter(e => e.texte !== tweet.texte))
+    } else {
+        setLikedTweets([...tweetList,tweet])
+    }
 }
 
 
-
+console.log(likedTweets);
 
 // Mise en place des tweet a afficher
 const tweetsDisplay = tweetList.map ((e,i) => {
-    const isLiked = likedTweets.some(data => data.texte === e.texte)
+    const isLiked = likedTweets.some(data => data.texte == e.texte)
+    console.log('isLiked',isLiked)
     const timePassed = new Date()-new Date(e.date) 
-    console.log('timepassed',timePassed)
     const hours = new Date(timePassed).getHours()
-    console.log('hours',hours)
     const minutes = new Date(timePassed).getMinutes()
-    console.log('minutes',minutes)
     const seconds = new Date(timePassed).getSeconds()
-    console.log('seconds', seconds)
     let time = ''
     if(hours-1>0){
         time = hours + 'hours ago'
-        console.log(time)
     } else if (minutes>0){
         time = minutes + 'minutes ago'
-        console.log(time)
     } else {
         time = seconds + 'seconds ago'
-        console.log(time)
     }
     return <Tweet key={i} updateLikedTweets={updateLikedTweets} isLiked={isLiked} firstname={e.firstname} username={e.username} texte={e.texte} likes={e.likes.length} time={time} />
 })

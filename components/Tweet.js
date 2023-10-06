@@ -10,7 +10,7 @@ import { useState } from 'react';
 function Tweet (props) {
 const dispatch = useDispatch();
 const user = useSelector((state) => state.users.value)
-const style = {}
+let style = {}
 
 
 
@@ -28,6 +28,10 @@ const handleTrash = () => {
     })
 }
 
+console.log("propsliked", props.isLiked)
+if(props.isLiked){
+    style={color:'red'}
+}
 const handleLike = () => {
     if(!props.isLiked){
         fetch('http://localhost:3000/tweets/addlike',{
@@ -37,9 +41,7 @@ const handleLike = () => {
         })
         .then(response=>response.json())
         .then(data => {
-            console.log(data)
-            props.updateLikedTweets()
-            style={color:'red'}
+            props.updateLikedTweets(data.tweet)
         })
     } else {
         fetch('http://localhost:3000/tweets/removeLike',{
@@ -49,8 +51,7 @@ const handleLike = () => {
         })
         .then(response=>response.json())
         .then(data => {
-            props.updateLikedTweets()
-            style={color:'black'}
+            props.updateLikedTweets(data.tweet)
         })
     }
 }
