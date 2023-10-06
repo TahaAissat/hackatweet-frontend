@@ -1,8 +1,9 @@
 .Home_page{
-    background-color: beige;
+    background-color: whitesmoke;
     display: flex;
     width: 100vw;
     height: 100vh;
+    justify-content: space-between;
 }
 .Logo{
     cursor: pointer;
