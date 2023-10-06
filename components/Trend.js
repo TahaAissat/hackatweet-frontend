@@ -2,6 +2,8 @@ import styles from '../styles/Home.module.css'
 import { useDispatch,useSelector } from 'react-redux';
 import { defineList} from '../reducers/tweets'
 import { useEffect } from 'react';
+import { defineHashtagTweets } from '../reducers/hashtagtweets';
+
 
 
 function Trends(){
@@ -13,6 +15,15 @@ function Trends(){
             dispatch(defineList(data.tweets))
         })
     },[])
+    const handleFindHastag = (hashtag) =>{
+        fetch(`http://localhost:3000/search/${hashtag.replace('#','')}`)
+        .then(response => response.json())
+        .then(data =>{
+            dispatch(defineHashtagTweets(data.tweets))
+            
+        })
+
+    }
     const tweetList = useSelector((state) => state.tweets.value)
     console.log(tweetList)
     let hashtag = []
@@ -27,9 +38,9 @@ function Trends(){
     const trendItems = Object.keys(count).map((hashtag, index) => (
         <div key={index}>
         {count[hashtag] > 1 ? ( 
-        <><h3 onClick={()=> handleFindHastag}>{hashtag}</h3><p>{count[hashtag]} Tweets</p></>
+        <><h3 onClick={()=> handleFindHastag(hashtag)}>{hashtag}</h3><p>{count[hashtag]} Tweets</p></>
         ) : (
-        <><h3 onClick={()=> handleFindHastag}>{hashtag}</h3><p>{count[hashtag]} Tweet</p></>
+        <><h3 onClick={()=> handleFindHastag(hashtag)}>{hashtag}</h3><p>{count[hashtag]} Tweet</p></>
         )}
       </div>
     ));

@@ -5,11 +5,10 @@ function HashtagTweets ()  {
 const dispatch = useDispatch();
 const tweetList = useSelector((state) => state.value)
 
- const tweetListDisplay = []
 
-//const tweetListDisplay = tweetList.map((e,i) => {
-//return <Tweet key={i} firstname={e.firstname} username={e.username} texte={e.texte} />
-//})
+const tweetListDisplay = tweetList.map((e,i) => {
+    return <Tweet key={i} firstname={e.firstname} username={e.username} texte={e.texte} />
+})
     return (
         <>
         {tweetListDisplay}
