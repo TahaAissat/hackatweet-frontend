@@ -10,9 +10,9 @@ function Leftside(){
         dispatch(logout())
     }
     return(
-        <div className={styles.Leftside}>
+        <div>
         <Link href='/home'><Image className={styles.Logo} src='/logo.png'width={100} height={100}/></Link>
-        <Link href='/' ><button onClick={()=> handleLogout()}>Logout</button></Link>
+        <div className={styles.logout}><Link href='/' ><button onClick={()=> handleLogout()}>Logout</button></Link></div>
         </div>
     )
 }
