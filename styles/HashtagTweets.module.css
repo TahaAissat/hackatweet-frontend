@@ -38,3 +38,13 @@
     padding: 10px;
     border: 1px solid gray;
 }
+.buttonAdd{
+    width: 30%;
+    background-color: rgb(64, 154, 241);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}

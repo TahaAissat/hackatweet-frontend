@@ -26,7 +26,7 @@ const updateLikedTweets = (tweet) => {
     if(likedTweets.some(e => e.texte === tweet.texte)){
         setLikedTweets(tweetList.filter(e => e.texte !== tweet.texte))
     } else {
-        setLikedTweets([...tweetList,tweet])
+        setLikedTweets([...likedTweets,tweet])
     }
 }
 

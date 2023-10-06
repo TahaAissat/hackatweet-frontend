@@ -1,4 +1,4 @@
-import styles from '../styles/SearchTweet.module.css';
+import styles from '../styles/HashtagTweets.module.css';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ const handleSearch = () => {
     return (
         <>
         <textarea onChange = {(e) => setSearchText(e.target.value) } rows={4} cols={40} />
-        <button onClick={() => handleSearch()}>Search</button>
+        <button className={styles.buttonAdd} onClick={() => handleSearch()}>Search</button>
         </>
     )
 }
