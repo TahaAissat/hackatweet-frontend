@@ -22,7 +22,7 @@ const handleSearch = () => {
 
     return (
         <>
-        <textarea onChange = {(e) => setSearchText(e.target.value) } rows={4} cols={40}/>
+        <textarea onChange = {(e) => setSearchText(e.target.value) } rows={4} cols={40} />
         <button onClick={() => handleSearch()}>Search</button>
         </>
     )

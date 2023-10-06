@@ -1,0 +1,48 @@
+.login_page{
+    display: flex;
+    flex-wrap: wrap;
+}
+.img{
+    width: 40vw;
+    height: 100vh;
+}
+.cardLog{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(22, 31, 45);
+    color: white;
+    flex:24%;
+    justify-content: center;
+}
+.cardText{
+    margin-left: 20px;
+    font-size: 40px;
+}
+.p{
+    font-size: 20px;
+}
+.buttonSign{
+    background-color: rgb(22, 31, 45);
+    font-size: 20px;
+    border: 2px solid grey;
+    color: rgb(64, 154, 241);
+    border-radius: 40px;
+    width: 200px;
+    height: 50px;
+}
+.buttonSignUp{
+    background-color: rgb(64, 154, 241);
+    font-size: 20px;
+    border: 2px solid grey;
+    color: white;
+    border-radius: 40px;
+    width: 200px;
+    height: 50px;
+}
+.logo{
+    background-color: rgb(22, 31, 45);
+    border: none;
+    margin-top: -250px;
+    width: 15vw;
+    height: 15vh;
+}

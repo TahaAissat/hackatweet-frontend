@@ -2,9 +2,11 @@ import styles from '../styles/Home.module.css'
 import { useDispatch,useSelector } from 'react-redux';
 import { defineList} from '../reducers/tweets'
 import { useEffect } from 'react';
-
+import { defineHashtagTweets } from '../reducers/hashtagtweets';
+import { useRouter } from 'next/router';
 
 function Trends(){
+    const router = useRouter()
     const dispatch = useDispatch()
 
     const tweetList = useSelector((state) => state.tweets.value)
@@ -20,9 +22,9 @@ function Trends(){
     const trendItems = Object.keys(count).map((hashtag, index) => (
         <div key={index}>
         {count[hashtag] > 1 ? ( 
-        <><h3 onClick={()=> handleFindHastag}>{hashtag}</h3><p>{count[hashtag]} Tweets</p></>
+        <><h3 onClick={()=> handleFindHastag(hashtag)}>{hashtag}</h3><p>{count[hashtag]} Tweets</p></>
         ) : (
-        <><h3 onClick={()=> handleFindHastag}>{hashtag}</h3><p>{count[hashtag]} Tweet</p></>
+        <><h3 onClick={()=> handleFindHastag(hashtag)}>{hashtag}</h3><p>{count[hashtag]} Tweet</p></>
         )}
       </div>
     ));
